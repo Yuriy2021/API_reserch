@@ -91,6 +91,7 @@ export interface ListEvent {
   isActive: true;
   gifts: ListGiftFromEvent[];
 }
+<<<<<<< HEAD
 
 export interface ListGift {
   id: string;
@@ -101,3 +102,5 @@ export interface ListGift {
   link: string;
   description: string;
 }
+=======
+>>>>>>> Event_requests

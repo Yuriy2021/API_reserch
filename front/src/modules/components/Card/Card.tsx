@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 
 
 import { useRole } from "../../requireAuth";
@@ -38,6 +39,24 @@ export function MultiActionAreaCard() {
         ))}
       </ul>
         {/* <CardMedia
+=======
+import { useSelector } from "react-redux";
+import { selectUser } from "../..";
+import { useRole } from "../../requireAuth";
+
+export function MultiActionAreaCard() {
+  const { value: user } = useSelector(selectUser);
+  const role = useRole(user.userId, 2);
+  const navigate = useNavigate();
+  const navigateMain = () => {
+    setTimeout(() => navigate("/", { replace: true }), 500);
+  };
+  return (
+    <Card sx={{ maxWidth: 345 }}>
+      <h1>{role}</h1>
+      <CardActionArea>
+        <CardMedia
+>>>>>>> Event_requests
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
@@ -51,6 +70,7 @@ export function MultiActionAreaCard() {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
+<<<<<<< HEAD
         </CardContent> */}
       
       <CardActions>
@@ -59,5 +79,15 @@ export function MultiActionAreaCard() {
         </Button> */}
       </CardActions>
     
+=======
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" onClick={navigateMain}>
+          Share
+        </Button>
+      </CardActions>
+    </Card>
+>>>>>>> Event_requests
   );
 }

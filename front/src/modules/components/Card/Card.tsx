@@ -5,22 +5,39 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectUser } from "../..";
+
+
 import { useRole } from "../../requireAuth";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectListGift } from "../../store";
+import { useAppDispatch } from "../../hooks";
+import { getAllGifts } from "../../store/ThunkCreator";
+import { Button } from "@mui/material";
 
 export function MultiActionAreaCard() {
-  const { value: user } = useSelector(selectUser);
-  const role = useRole(user.userId, 2);
-  const navigate = useNavigate();
-  const navigateMain = () => {
-    setTimeout(() => navigate("/", { replace: true }), 500);
+  const { value: gifts } = useSelector(selectListGift);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getAllGifts("запрос"));
+  }, []);
+  const [value, setValue] = useState(0);
+  const ref = React.useRef<HTMLDivElement>(null);
   };
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <h1>{role}</h1>
-      <CardActionArea>
-        <CardMedia
+  return (  
+      
+      <ul>
+        {gifts.map((gift, index) => (
+          <li key={gift.id}>{gift.title}</li>
+          // <ListItem button key={index + event.title}>
+          //   <ListItemAvatar>
+          //     <Avatar alt="Profile Picture" src={"person"} />
+          //   </ListItemAvatar>
+          //   <ListItemText primary={event.title} secondary={event.description} />
+          // </ListItem>
+        ))}
+      </ul>
+        {/* <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
@@ -34,13 +51,13 @@ export function MultiActionAreaCard() {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
-        </CardContent>
-      </CardActionArea>
+        </CardContent> */}
+      
       <CardActions>
-        <Button size="small" color="primary" onClick={navigateMain}>
+        {/* <Button size="small" color="primary" onClick={navigateMain}>
           Share
-        </Button>
+        </Button> */}
       </CardActions>
-    </Card>
+    
   );
 }

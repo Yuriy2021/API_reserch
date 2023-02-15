@@ -85,4 +85,22 @@ export const api = {
 
     return data;
   },
+  getAllGifts: async (value:any) => {
+    try {
+      const res = await apifetch.get(`/api/v1/gift`)
+      const data = res.data.map((resp:IListCreator) => {
+        return {
+          id: resp.id,
+        userCreatorId: resp.userCreatorId,
+        title: resp.title,
+        description: resp.description,
+        gifts: resp.gifts,
+
+        }
+      })
+      return data;
+    }catch (error) {
+      console.error(error)
+    };
+  },
 };

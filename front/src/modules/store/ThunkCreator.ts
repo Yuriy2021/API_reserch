@@ -3,7 +3,10 @@ import {
   IReqUser,
   IUserSession,
   ListEvent,
+<<<<<<< HEAD
   ListGift
+=======
+>>>>>>> Event_requests
 } from "../../interfaces";
 import { api, Api } from "../api";
 import { thunks } from "./helper";
@@ -22,7 +25,10 @@ export const getAllEvents = thunks<ListEvent[], any>(
   api.getAllEvents,
   "event/getEvent"
 );
+<<<<<<< HEAD
 export const getAllGifts = thunks<ListGift[], any>(
   api.getAllGifts,
   "gift/getGift"
 );
+=======
+>>>>>>> Event_requests

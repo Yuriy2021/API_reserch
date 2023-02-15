@@ -85,6 +85,7 @@ export const api = {
 
     return data;
   },
+<<<<<<< HEAD
   getAllGifts: async (value:any) => {
     try {
       const res = await apifetch.get(`/api/v1/gift`)
@@ -103,4 +104,6 @@ export const api = {
       console.error(error)
     };
   },
+=======
+>>>>>>> Event_requests
 };

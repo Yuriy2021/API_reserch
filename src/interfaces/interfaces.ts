@@ -61,6 +61,7 @@ export interface IGiftGiver {
   session: false;
 }
 export interface IListCreator {
+  link: string;
   id: string;
   userCreatorId: string;
   title: string;

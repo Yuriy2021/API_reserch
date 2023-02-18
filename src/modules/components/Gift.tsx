@@ -16,7 +16,7 @@ export function Gift({ event }: GiftProps) {
     <div
       className="border py-2 px-4 rounded flex flex-col items-center mb-2"
     >
-      <img src={event.link} className="w-1/6" alt={event.title} />
+      <img src={event.link} width="200" height="200" alt={event.title} />
       <p>{ event.title }</p>
       
       <button

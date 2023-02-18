@@ -42,7 +42,8 @@ export function MultiActionAreaCard(props: any) {
     <div className="container mx-auto max-w-2xl pt-5">
       {/* { loading && <Loader /> }
       { error && <ErrorMessage error={error} /> } */}
-      { events.map(event => <Gift event={event} key={event.id} />) }
+      { events.map(event => <Gift event={event} key={event.id} />)}
+      
 
       {/* {modal && <Modal title="Create new product" onClose={close}>
         <CreateProduct onCreate={createHandler} />

@@ -19,6 +19,7 @@ import { selectListEvent, selectListGift } from "../../store";
 import { useAppDispatch } from "../../hooks";
 import { getAllEvents, getAllGifts } from "../../store/ThunkCreator";
 import { Button } from "@mui/material";
+import { Gift } from "../Gift";
 
 export function MultiActionAreaCard(props: any) {
   const { value: events } = useSelector(selectListGift);
@@ -38,52 +39,22 @@ export function MultiActionAreaCard(props: any) {
     // dispatch(createEvent("запрос"));
   };
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
-      <CssBaseline />
+    <div className="container mx-auto max-w-2xl pt-5">
+      {/* { loading && <Loader /> }
+      { error && <ErrorMessage error={error} /> } */}
+      { events.map(event => <Gift event={event} key={event.id} />) }
 
-      {/* <List> */}
-      <ul>
-        {events.map((event, index) => (
-          <li key={event.description}>{event.title}</li>
-          // <ListItem button key={index + event.title}>
-          //   <ListItemAvatar>
-          //     <Avatar alt="Profile Picture" src={"person"} />
-          //   </ListItemAvatar>
-          //   <ListItemText primary={event.title} secondary={event.description} />
-          // </ListItem>
-        ))}
-      </ul>
-      {/* </List> */}
-      <input></input>
-      <input></input>
-      <Button onClick={handler} variant="contained">
-        Создать еще список
-      </Button>
-      <Paper
-        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-        elevation={3}
-      >
-        <BottomNavigation
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
-        </BottomNavigation>
-      </Paper>
-    </Box>
-  );
-}
+      {/* {modal && <Modal title="Create new product" onClose={close}>
+        <CreateProduct onCreate={createHandler} />
+      </Modal>}
 
-interface MessageExample {
-  primary: string;
-  secondary: string;
-  person: string;
-}
+      <button
+        className="fixed bottom-5 right-5 rounded-full bg-red-700 text-white text-2xl px-4 py-2"
+        onClick={open}
+      >+</button> */}
+    </div>
+  )
+    }   
 
 // const messageExamples: readonly MessageExample[] = [
 //   {

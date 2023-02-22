@@ -103,3 +103,9 @@ export interface ListGift {
   description: string;
   gifts:ListGiftFromEvent[];
 }
+export interface IGift {
+  eventId: string;
+  title: string;
+  link: string;
+  description: string;
+}
